@@ -4,6 +4,7 @@
 # author: Gabriel Zima (z1mEk)
 # e-mail: gabriel.zima@wp.pl
 # date: 2018-07-02
+# compatibile verion: 1.2
 ######################################################################################
 
 import ctypes
@@ -30,5 +31,3 @@ class BBMagic:
     #Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
         return bbm_lib.bbm_bt_lib_version()
-
-    
