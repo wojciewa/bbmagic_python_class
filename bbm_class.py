@@ -71,7 +71,7 @@ class BBMagic:
     #Function: reads data from bbmagic modules
     def bbm_bt_read(self, bbm_data):
         i = bbm_bt_lib.bbm_bt_read(byref(self.bbm_buf))
-        j=0
+        j = 0
         for b in self.bbm_buf :
             bbm_data[j] = b
             j = j + 1
