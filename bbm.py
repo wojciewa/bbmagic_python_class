@@ -1,4 +1,4 @@
-from lib.bbm_class import BBMagic
+from bbm_class import BBMagic
 
 bbm = BBMagic()
 i = bbm.bbm_bt_lib_version()
