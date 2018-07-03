@@ -30,4 +30,4 @@ class BBMagic:
 
     #Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
-        return bbm_lib.bbm_bt_lib_version()
+        return bbm_bt_lib.bbm_bt_lib_version()
