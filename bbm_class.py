@@ -6,6 +6,12 @@
 # date: 2018-07-02
 # compatibile version: 1.2
 ######################################################################################
+# Future suport 1.4 library
+# int bbm_bt_dimmer(unsigned char *dest_bd_addr, unsigned char *chan) ;
+# int bbm_bt_relay_on(unsigned char *dest_bd_addr, unsigned char relays) ;
+# int bbm_bt_relay_off(unsigned char *dest_bd_addr, unsigned char relays) ;
+# int bbm_bt_open(0, 0, 0, int op_mode) ;
+# ######################################################################################
 
 import ctypes
 from ctypes import *
