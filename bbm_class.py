@@ -89,7 +89,6 @@ class BBMagic:
 
         d = dict()
         d['result'] = i
-
         d['raw'] = self.bbm_buf
 
         #worktime = 0
@@ -124,7 +123,7 @@ class BBMagic:
             d['button_light'] = self.bbm_buf[self.BBM_BUTTON_LIGHT]
         elif device_type == self.BBMAGIC_M_METEO :
             d['meteo_hum'] = self.bbm_buf[self.BBM_METEO_HUM]
-            d['meteo_temp'] = self.bbm_buf[self.BBM_METEO_TEMPER_MSB] + self.bbm_buf[self.BBM_METEO_TEMPER_LSB]
+            #d['meteo_temp'] = self.bbm_buf[self.BBM_METEO_TEMPER_MSB] #self.bbm_buf[self.BBM_METEO_TEMPER_LSB]
             d['meteo_light'] = self.bbm_buf[self.BBM_METEO_LIGHT]
 
         return d
