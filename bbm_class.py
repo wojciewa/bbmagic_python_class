@@ -10,7 +10,7 @@
 # int bbm_bt_dimmer(unsigned char *dest_bd_addr, unsigned char *chan) ;
 # int bbm_bt_relay_on(unsigned char *dest_bd_addr, unsigned char relays) ;
 # int bbm_bt_relay_off(unsigned char *dest_bd_addr, unsigned char relays) ;
-# int bbm_bt_open(0, 0, 0, int op_mode) ;
+# int bbm_bt_open(int led_rx_pin, int led_tx_pin, int led_run_pin, int op_mode) ;
 # ######################################################################################
 
 import ctypes
