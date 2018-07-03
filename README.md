@@ -1,2 +1,3 @@
-# bbmagic_python
-Support for BBMagic modules from Python
+# bbmagic_python_class
+
+Python class for support BBMagic devices
