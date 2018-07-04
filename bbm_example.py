@@ -1,6 +1,11 @@
 from bbm_class import BBMagic
 from time import sleep
 
+print
+print "    ***  BBMagic example   ***"
+print "    *** hit Ctrl+C to stop ***"
+print
+
 bbm = BBMagic()
 i = bbm.bbm_bt_lib_version()
 print "BBMagic library version is {0}".format(i)
