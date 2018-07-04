@@ -1,3 +1,0 @@
-$ tar -zxvf bbmagic_lib_1.2.tar.gz
-$ ar -xv bbmagic_lib_1.2.a bbmagic_lib_1.2.o
-$ gcc -shared -o bbmagic_lib_1.2.so bbmagic_lib_1.2.o libbluetooth.a
