@@ -102,7 +102,7 @@ class BBMagic:
             device_mac = ''
             for i in range(self.BBMAGIC_DEVICE_ADDR_5, self.BBMAGIC_DEVICE_ADDR_0 + 1) :
                 device_mac = device_mac + format(bbm_buf_bytes[i], 'x')
-            d['mac'] = device_mac
+            d['mac'] = device_mac.upper()
             
             d['rssi'] = self.bbm_buf[self.BBMAGIC_DEVICE_RSSI]
             d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBMAGIC_DEVICE_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
