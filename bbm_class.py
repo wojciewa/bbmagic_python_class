@@ -79,7 +79,8 @@ class BBMagic:
 
     #Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
-        return bbm_bt_lib.bbm_bt_lib_version()
+        v = bbm_bt_lib.bbm_bt_lib_version()
+        return format(v, 'x')
 
     #Function: read data from bbmagic modules and parse to json format
     def bbm_bt_read_json(self):
@@ -91,7 +92,6 @@ class BBMagic:
         d['result'] = i
         d['raw'] = self.bbm_buf
 
-        worktime = 0
         worktime = self.BBMGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
         worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_2 * 0xFFFF
         worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_1 * 0xFF
