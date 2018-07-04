@@ -90,7 +90,7 @@ class BBMagic:
         d = dict()
         d['result'] = i
 
-        if i < 1 :
+        if i > 0 :
             d['raw'] = self.bbm_buf
             
             worktime = self.BBMGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
