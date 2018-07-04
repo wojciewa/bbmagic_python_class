@@ -14,7 +14,7 @@ while True:
         print js['mac'] + " | " + str(js['type']) + " | " + str(js['adv_time'])  + " | " + str(js['v_supl']) + "V | " + str(js['rssi']) + "dBm | " + str(js['flood_alert_flag'])
         ### example print object (json) to console
         # print js
-        ### example send to Domoticz
+        ### example send to Domoticz dummy sensor
         # idx = 123
         # flood_flag = 'Off' if js['flood_flag'] else 'On'
         # r = requests.get('https://<ip_domoticz>:<domoticz_port>/json.htm?type=command&param=udevice&idx={0}&nvalue=0&svalue={1}'.format(idx, flood_flag), auth=('user', 'pass'))
