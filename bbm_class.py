@@ -73,7 +73,7 @@ class BBMagic:
         j = 0
         for b in self.bbm_buf :
             bbm_data[j] = b
-            j = j + 1
+            j += 1
         return i
 
     #Function: returns version of bbm_bt library
@@ -94,14 +94,14 @@ class BBMagic:
             d['raw'] = self.bbm_buf
             
             worktime = self.BBMGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
-            worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_2 * 0xFFFF
-            worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_1 * 0xFF
-            worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_0
+            worktime += self.BBMGIC_DEVICE_WORKTIME_2 * 0xFFFF
+            worktime += self.BBMGIC_DEVICE_WORKTIME_1 * 0xFF
+            worktime += self.BBMGIC_DEVICE_WORKTIME_0
             d['worktime'] = worktime
 
             device_mac = ''
             for i in range(self.BBMAGIC_DEVICE_ADDR_5, self.BBMAGIC_DEVICE_ADDR_0 + 1) :
-                device_mac = device_mac + format(bbm_buf_bytes[i], 'x')
+                device_mac += "{:x}".format(bbm_buf_bytes[i])
             d['mac'] = device_mac.upper()
             
             d['rssi'] = self.bbm_buf[self.BBMAGIC_DEVICE_RSSI]
