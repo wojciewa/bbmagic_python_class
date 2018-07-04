@@ -91,10 +91,12 @@ class BBMagic:
         d['result'] = i
         d['raw'] = self.bbm_buf
 
-        #worktime = 0
-        #for i in range(self.BBMAGIC_DEVICE_WORKTIME_0, self.BBMAGIC_DEVICE_WORKTIME_3) :
-        #    worktime = self.bbm_buf[i]
-        #d['worktime'] = worktime
+        worktime = 0
+        worktime = self.BBMGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
+        worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_2 * 0xFFFF
+        worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_1 * 0xFF
+        worktime = worktime + self.BBMGIC_DEVICE_WORKTIME_0
+        d['worktime'] = worktime
 
         device_mac = ''
         for i in range(self.BBMAGIC_DEVICE_ADDR_5, self.BBMAGIC_DEVICE_ADDR_0 + 1) :
