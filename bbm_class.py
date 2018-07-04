@@ -106,7 +106,7 @@ class BBMagic:
             
             d['rssi'] = self.bbm_buf[self.BBMAGIC_DEVICE_RSSI]
             d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBMAGIC_DEVICE_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
-            d['adv_time'] = self.bbm_buf[self.BBMAGIC_DEVICE_ADV_TIME]
+            d['adv_time'] = self.bbm_buf[self.BBMAGIC_DEVICE_ADV_TIME] * 2
             d['dio_state'] = self.bbm_buf[self.BBMAGIC_DEVICE_DIO_STATE]
 
             device_type = self.bbm_buf[self.BBMAGIC_DEVICE_TYPE]
