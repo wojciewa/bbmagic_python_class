@@ -9,7 +9,7 @@
 
 import ctypes
 from ctypes import *
-bbm_bt_lib = ctypes.CDLL("./bbmagic_lib_1.2.so")
+bbm_bt_lib = ctypes.CDLL("bbmagic_lib_1.2.so")
 
 class BBMagic:
     def __init__(self) :
