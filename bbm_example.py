@@ -11,6 +11,9 @@ i = bbm.bbm_bt_lib_version()
 print("BBMagic library version is {}".format(i))
 
 i = bbm.bbm_bt_open(17)
+if i != 0:
+    print("some errors occured")
+    exit(0)
 
 while True:
     js = bbm.bbm_bt_read_json()
@@ -28,4 +31,4 @@ while True:
     elif js['result'] == -1 :
         i = bbm.bbm_bt_close()
         exit(0)
-    sleep(5)
+    sleep(1)
