@@ -1,5 +1,5 @@
 ######################################################################################
-# Descirption: BBMagic class use the bbmagic_lib for support the MMBagic devices.
+# Descirption: BBMagic class use the bbmagic_lib for support the BBMagic devices.
 #              Site of BBMagic project is http://bbmagic.net
 # author: Gabriel Zima (z1mEk)
 # e-mail: gabriel.zima@wp.pl
@@ -16,7 +16,6 @@ class BBMagic:
         self.BBMAGIC_M_METEO = 1
         self.BBMAGIC_M_MOTION = 2
         self.BBMAGIC_M_BUTTON = 3
-        self.BBMAGIC_M_ADC = 2
         self.BBMAGIC_M_FLOOD = 4
         self.BBMAGIC_M_CONTACTRON = 5
         self.BBMAGIC_M_KYE_REG = 0xFE
