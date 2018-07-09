@@ -197,10 +197,10 @@ class BBMagic:
     #Function: open bt hci and starts bt scanning
     #int led_rx_pin, int led_tx_pin, int led_run_pin, int op_mode
     def bbm_bt_open(self, *args, **kwargs):
-        led_rx_pin = 0 if kwargs.get('led_rx_pin', 0) else 1
-        led_tx_pin = 0 if kwargs.get('led_tx_pin', 0) else 1
-        led_run_pin = 0 if kwargs.get('led_run_pin', 0) else 1
-        op_mode = 0 if kwargs.get('op_mode', 0) else 1
+        led_rx_pin = kwargs.get('led_rx_pin', 0)
+        led_tx_pin = kwargs.get('led_tx_pin', 0)
+        led_run_pin = kwargs.get('led_run_pin', 0)
+        op_mode = kwargs.get('op_mode', 0)
         return bbm_bt_lib.bbm_bt_open(led_rx_pin, led_tx_pin, led_run_pin, op_mode)
 
     #Function: stops bt scanning and closes bt hci
