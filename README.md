@@ -14,5 +14,5 @@ cd bbmagic_lib
 ```
 3. Install dependent libraries. Get bbmagic_lib c library from http://bbmagic.net and compile as dynamic library.
 ```bash
-sudo sh install.sh
+sudo sh install_bbm_lib.sh
 ```
