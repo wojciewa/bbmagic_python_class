@@ -1,9 +1,9 @@
-############################################################################################################################################################################
+######################################################################################
 # Descirption: BBMagic class use the bbmagic_lib for support the BBMagic devices.
-#              Site of BBMagic project is http:# bbmagic.net
+#              Site of BBMagic project is http://bbmagic.net
 # author: Gabriel Zima (z1mEk)
 # e-mail: gabriel.zima@wp.pl
-# github: https:# github.com/z1mEk/bbmagic_python_class.git
+# github: https://github.com/z1mEk/bbmagic_python_class.git
 # create date: 2018-07-02
 # update date: 2018-07-09
 # compatibile bbmagic_lib version: 1.4
