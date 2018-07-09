@@ -12,7 +12,7 @@ sudo git clone https://github.com/z1mEk/bbmagic_python_class.git bbmagic_lib
 ```bash
 cd bbmagic_lib
 ```
-3. Install dependent libraries. Get bbmagic_lib c library from http://bbmagic.net and compile as dynamic library.
+3. Install dependent libraries.
 ```bash
 sudo sh install_bbm_lib.sh
 ```
