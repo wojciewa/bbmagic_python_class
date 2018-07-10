@@ -200,7 +200,7 @@ class BBMagic:
         led_rx_pin = kwargs.get('led_rx_pin', 0)
         led_tx_pin = kwargs.get('led_tx_pin', 0)
         led_run_pin = kwargs.get('led_run_pin', 0)
-        op_mode = kwargs.get('op_mode', 0)
+        op_mode = kwargs.get('op_mode', 1)
         return bbm_bt_lib.bbm_bt_open(led_rx_pin, led_tx_pin, led_run_pin, op_mode)
 
     # Function: stops bt scanning and closes bt hci
@@ -251,7 +251,7 @@ class BBMagic:
         return mac_buf
 
     # Function: read data from bbmagic modules and append to dictionary
-    def bbm_bt_read_json(self):
+    def bbm_bt_read_dict(self):
         i = self.bbm_bt_read(self.bbm_buf)
         self.bbm_buf_bytes = bytearray(self.bbm_buf)
         d = dict()
@@ -269,7 +269,7 @@ class BBMagic:
                 d['type_name'] = 'bbm_meteo'
                 d['work_time'] = self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_3] << 24 | \
                                  self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_2] << 16 | \
-                                 self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_1] <<8 | \
+                                 self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_0]
                 d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_METEO_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_METEO_ADV_TIME] * 2

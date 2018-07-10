@@ -13,7 +13,7 @@ print("BBMagic library version is {}".format(i))
 i = bbm.bbm_bt_open()
 
 while True:
-    js = bbm.bbm_bt_read_json()
+    js = bbm.bbm_bt_read_dict()
     if js['result'] > 0 :
          print(js)
 
