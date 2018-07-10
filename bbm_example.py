@@ -15,7 +15,7 @@ i = bbm.bbm_bt_open()
 while True:
     js = bbm.bbm_bt_read_dict()
     if js['result'] > 0 :
-         print(js)
+        print(js)
 
         ### example send to Domoticz dummy sensor
         # if js[type_name] == 'bbm_flood' && js['mac'] == 'C527FECE713C' : # check mac for BBMagic flood device
