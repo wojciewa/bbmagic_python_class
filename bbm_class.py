@@ -398,5 +398,5 @@ class BBMagic:
     # Function: read data and convert to json format    
     def bbm_read_json(self):
         d = bbm_read_dict()
-        js = json.load(d)
+        js = json.dumps(d, ensure_ascii=False)
         return js
