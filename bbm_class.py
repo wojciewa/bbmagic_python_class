@@ -386,7 +386,8 @@ class BBMagic:
                 d['linux_lib_data'] = self.bbm_buf[BBM_LINUXLIB_DATA_2] << 16 | \
                                  self.bbm_buf[BBM_LINUXLIB_DATA_1] << 8 | \
                                  self.bbm_buf[BBM_LINUXLIB_DATA_0]
-                d['linux_lib_version'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], self.bbm_buf[self.BBM_LINUXLIB_VER_0])
+                d['linux_lib_version'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], \
+                                 self.bbm_buf[self.BBM_LINUXLIB_VER_0])
 
             else:
                 d['type_name'] = "unknown"
