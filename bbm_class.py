@@ -9,6 +9,7 @@
 # compatibile bbmagic_lib version: 1.4
 ######################################################################################
 
+import json
 import ctypes
 from ctypes import *
 bbm_bt_lib = ctypes.CDLL("bbmagic_lib_1.4.so")
@@ -251,15 +252,13 @@ class BBMagic:
         return mac_buf
 
     # Function: read data from bbmagic modules and append to dictionary
-    def bbm_bt_read_dict(self):
+    def bbm_read_dict(self):
         i = self.bbm_bt_read(self.bbm_buf)
         self.bbm_buf_bytes = bytearray(self.bbm_buf)
         d = dict()
         d['result'] = i
 
         if i > 0:
-            d['raw'] = self.bbm_buf
-            d['bytearray'] = self.bbm_buf_bytes
             d['mac'] = self.buf2mac(self.bbm_buf, self.BBMAGIC_DEVICE_ADDR_5, self.BBMAGIC_DEVICE_ADDR_0) 
             d['rssi'] = self.bbm_buf[self.BBMAGIC_DEVICE_RSSI]
             device_type = self.bbm_buf[self.BBMAGIC_DEVICE_TYPE]
@@ -392,4 +391,12 @@ class BBMagic:
             else:
                 d['type_name'] = "unknown"
                 d['err_message'] = "Unknown device type"
+                
+        js = json.dumps(d, ensure_ascii=False)
         return d
+
+    # Function: read data and convert to json format    
+    def bbm_read_json(self):
+        d = bbm_read_dict()
+        js = json.load(d)
+        return js
