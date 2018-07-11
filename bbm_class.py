@@ -391,12 +391,11 @@ class BBMagic:
             else:
                 d['type_name'] = "unknown"
                 d['err_message'] = "Unknown device type"
-                
-        js = json.dumps(d, ensure_ascii=False)
+
         return d
 
     # Function: read data and convert to json format    
     def bbm_read_json(self):
-        d = bbm_read_dict()
-        js = json.dumps(d, ensure_ascii=False)
+        d = self.bbm_read_dict()
+        js = json.dumps(d)
         return js

@@ -1,3 +1,4 @@
+import json
 from bbm_class import BBMagic
 from time import sleep
 
@@ -13,6 +14,8 @@ print("BBMagic library version is {}".format(i))
 i = bbm.bbm_bt_open()
 
 while True:
+	#js = bbm.bbm_read_json()
+	#js = json.loads(js)
     js = bbm.bbm_read_dict()
     if js['result'] > 0 :
         print(js)
