@@ -398,4 +398,5 @@ class BBMagic:
     def bbm_read_json(self):
         d = self.bbm_read_dict()
         js = json.dumps(d)
+		
         return js
