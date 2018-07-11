@@ -9,6 +9,7 @@
 # compatibile bbmagic_lib version: 1.4
 ######################################################################################
 
+import json
 import ctypes
 from ctypes import *
 bbm_bt_lib = ctypes.CDLL("bbmagic_lib_1.4.so")
@@ -251,15 +252,13 @@ class BBMagic:
         return mac_buf
 
     # Function: read data from bbmagic modules and append to dictionary
-    def bbm_bt_read_dict(self):
+    def bbm_read_dict(self):
         i = self.bbm_bt_read(self.bbm_buf)
         self.bbm_buf_bytes = bytearray(self.bbm_buf)
         d = dict()
         d['result'] = i
 
         if i > 0:
-            d['raw'] = self.bbm_buf
-            d['bytearray'] = self.bbm_buf_bytes
             d['mac'] = self.buf2mac(self.bbm_buf, self.BBMAGIC_DEVICE_ADDR_5, self.BBMAGIC_DEVICE_ADDR_0) 
             d['rssi'] = self.bbm_buf[self.BBMAGIC_DEVICE_RSSI]
             device_type = self.bbm_buf[self.BBMAGIC_DEVICE_TYPE]
@@ -383,13 +382,21 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_LINUXLIB_TIMESTAMP_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_LINUXLIB_TIMESTAMP_0]
                 d['mac'] = self.buf2mac(self.bbm_buf, self.BBM_LINUXLIB_DEST_ADDR_5, self.BBM_LINUXLIB_DEST_ADDR_0)
-                d['linux_lib_data'] = self.bbm_buf[BBM_LINUXLIB_DATA_2] << 16 | \
-                                 self.bbm_buf[BBM_LINUXLIB_DATA_1] << 8 | \
-                                 self.bbm_buf[BBM_LINUXLIB_DATA_0]
+                d['linux_lib_data'] = self.bbm_buf[self.BBM_LINUXLIB_DATA_2] << 16 | \
+                                 self.bbm_buf[self.BBM_LINUXLIB_DATA_1] << 8 | \
+                                 self.bbm_buf[self.BBM_LINUXLIB_DATA_0]
                 d['linux_lib_version'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], \
                                  self.bbm_buf[self.BBM_LINUXLIB_VER_0])
 
             else:
                 d['type_name'] = "unknown"
                 d['err_message'] = "Unknown device type"
+
         return d
+
+    # Function: read data and convert to json format    
+    def bbm_read_json(self):
+        d = self.bbm_read_dict()
+        js = json.dumps(d)
+		
+        return js
