@@ -382,9 +382,9 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_LINUXLIB_TIMESTAMP_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_LINUXLIB_TIMESTAMP_0]
                 d['mac'] = self.buf2mac(self.bbm_buf, self.BBM_LINUXLIB_DEST_ADDR_5, self.BBM_LINUXLIB_DEST_ADDR_0)
-                d['linux_lib_data'] = self.bbm_buf[BBM_LINUXLIB_DATA_2] << 16 | \
-                                 self.bbm_buf[BBM_LINUXLIB_DATA_1] << 8 | \
-                                 self.bbm_buf[BBM_LINUXLIB_DATA_0]
+                d['linux_lib_data'] = self.bbm_buf[self.BBM_LINUXLIB_DATA_2] << 16 | \
+                                 self.bbm_buf[self.BBM_LINUXLIB_DATA_1] << 8 | \
+                                 self.bbm_buf[self.BBM_LINUXLIB_DATA_0]
                 d['linux_lib_version'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], \
                                  self.bbm_buf[self.BBM_LINUXLIB_VER_0])
 
