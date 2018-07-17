@@ -216,24 +216,24 @@ class BBMagic:
 
     # Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
-        v = bbm_bt_lib.bbm_bt_lib_version()
+        v = bbm_bt_lib.bbm_bt_lib_version()object
         return "{:x}".format(v)
 
     # Function: turns on bbm relays
     def bbm_bt_relay_on(self, mac, relay):
-        i = bbm_bt_lib.bbm_bt_relay_on(mac2buf(mac), [1,2,4,8][relay])
+        i = bbm_bt_lib.bbm_bt_relay_on(self.mac2buf(mac), [1,2,4,8][relay])
         return i
 
     # Function: turns off selected relays
     def bbm_bt_relay_off(self, mac, relay):
-        i = bbm_bt_lib.bbm_bt_relay_off(mac2buf(mac), [1,2,4,8][relay])
+        i = bbm_bt_lib.bbm_bt_relay_off(self.mac2buf(mac), [1,2,4,8][relay])
         return i
 
     # Function: sets bbm dimmer channels
     def bbm_bt_dimmer(self, mac, red, green, blue):
         rgb = [red, green, blue]
         channel = (c_byte * len(rgb))(*rgb)
-        i = bbm_bt_lib.bbm_bt_dimmer(mac2buf(mac), channel)
+        i = bbm_bt_lib.bbm_bt_dimmer(self.mac2buf(mac), channel)
         return i
 
     ### Helper functions
@@ -270,7 +270,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_METEO_WORKTIME_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_METEO_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_METEO_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_METEO_ADV_TIME] * 2
                 d['light'] = self.bbm_buf[self.BBM_METEO_LIGHT]
                 d['din_state'] = self.bbm_buf[self.BBM_METEO_DIN_STATE]
@@ -288,7 +288,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_MOTION_WORKTIME_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_MOTION_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_MOTION_WORKTIME_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_MOTION_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_MOTION_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['chip_temp'] = self.bbm_buf[self.BBM_MOTION_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_MOTION_LIGHT]
                 d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_MOTION_FIRM_1], self.bbm_buf[self.BBM_MOTION_FIRM_0])
@@ -304,7 +304,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_BUTTON_SIGN_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_BUTTON_SIGN_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_BUTTON_SIGN_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_BUTTON_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_BUTTON_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['chip_temp'] = self.bbm_buf[self.BBM_BUTTON_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_BUTTON_LIGHT]
                 d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_BUTTON_FIRM_1], self.bbm_buf[self.BBM_BUTTON_FIRM_0])
@@ -329,7 +329,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_MAGNETO_WORKTIME_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_MAGNETO_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_MAGNETO_WORKTIME_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_MAGNETO_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_MAGNETO_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_MAGNETO_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_MAGNETO_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_MAGNETO_LIGHT]
@@ -346,7 +346,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_RELAY_WORKTIME_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_RELAY_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_RELAY_WORKTIME_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_RELAY_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_RELAY_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_RELAY_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_RELAY_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_RELAY_LIGHT]
@@ -364,7 +364,7 @@ class BBMagic:
                                  self.bbm_buf_bytes[self.BBM_DIMMER_WORKTIME_2] << 16 | \
                                  self.bbm_buf_bytes[self.BBM_DIMMER_WORKTIME_1] << 8 | \
                                  self.bbm_buf_bytes[self.BBM_DIMMER_WORKTIME_0]
-                d['v_supl'] = "{:4.2f}".format(float(bbm_buf_bytes[self.BBM_DIMMER_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
+                d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_DIMMER_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_DIMMER_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_DIMMER_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_RELAY_LIGHT]
@@ -398,5 +398,5 @@ class BBMagic:
     def bbm_read_json(self):
         d = self.bbm_read_dict()
         js = json.dumps(d)
-		
+
         return js

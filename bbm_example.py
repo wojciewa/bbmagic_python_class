@@ -33,4 +33,4 @@ while True:
     elif js['result'] == -1 :
         i = bbm.bbm_bt_close()
         exit(0)
-    sleep(5)
+    sleep(0.1)
