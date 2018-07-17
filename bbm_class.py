@@ -216,7 +216,7 @@ class BBMagic:
 
     # Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
-        v = bbm_bt_lib.bbm_bt_lib_version()object
+        v = bbm_bt_lib.bbm_bt_lib_version()
         return "{:x}".format(v)
 
     # Function: turns on bbm relays
