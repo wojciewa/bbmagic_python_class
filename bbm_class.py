@@ -291,7 +291,7 @@ class BBMagic:
                 d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_MOTION_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['chip_temp'] = self.bbm_buf[self.BBM_MOTION_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_MOTION_LIGHT]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_MOTION_FIRM_1], self.bbm_buf[self.BBM_MOTION_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_MOTION_FIRM_1], self.bbm_buf[self.BBM_MOTION_FIRM_0])
                 d['motion_flags'] = self.bbm_buf[self.BBM_MOTION_FLAGS]
                 d['adc1'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MOTION_ADC_1_MSB] << 8 | \
                                  self.bbm_buf[self.BBM_MOTION_ADC_1_LSB]) / 1000.0)
@@ -307,7 +307,7 @@ class BBMagic:
                 d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_BUTTON_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['chip_temp'] = self.bbm_buf[self.BBM_BUTTON_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_BUTTON_LIGHT]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_BUTTON_FIRM_1], self.bbm_buf[self.BBM_BUTTON_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_BUTTON_FIRM_1], self.bbm_buf[self.BBM_BUTTON_FIRM_0])
                 d['button_function'] = self.bbm_buf[self.BBM_BUTTON_BUTTON_FUNCTION]
                 d['button_input_pins'] = self.bbm_buf[self.BBM_BUTTON_INPUT_PINS]
 
@@ -320,7 +320,7 @@ class BBMagic:
                 d['v_supl'] = "{:4.2f}".format(float(self.bbm_buf_bytes[self.BBM_FLOOD_V_SUP]) / self.BBMAGIC_VCC_DIVIDER)
                 d['adv_time'] = self.bbm_buf[self.BBM_FLOOD_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_FLOOD_CHIP_TEMP]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_FLOOD_FIRM_1], self.bbm_buf[self.BBM_FLOOD_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_FLOOD_FIRM_1], self.bbm_buf[self.BBM_FLOOD_FIRM_0])
                 d['flood_flags'] = self.bbm_buf[self.BBM_FLOOD_ALERT_FLAGS]
 
             elif device_type == self.BBMAGIC_M_MAGNETO:
@@ -333,7 +333,7 @@ class BBMagic:
                 d['adv_time'] = self.bbm_buf[self.BBM_MAGNETO_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_MAGNETO_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_MAGNETO_LIGHT]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_MAGNETO_FIRM_1], self.bbm_buf[self.BBM_MAGNETO_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_MAGNETO_FIRM_1], self.bbm_buf[self.BBM_MAGNETO_FIRM_0])
                 d['magneto_flags'] = self.bbm_buf[self.BBM_MAGNETO_FLAGS]
                 d['adc1'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MAGNETO_ADC_1_MSB] << 8 | \
                                  self.bbm_buf[self.BBM_MAGNETO_ADC_1_LSB]) / 1000.0)
@@ -350,7 +350,7 @@ class BBMagic:
                 d['adv_time'] = self.bbm_buf[self.BBM_RELAY_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_RELAY_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_RELAY_LIGHT]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_RELAY_FIRM_1], self.bbm_buf[self.BBM_RELAY_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_RELAY_FIRM_1], self.bbm_buf[self.BBM_RELAY_FIRM_0])
                 d['relays_state'] = self.bbm_buf[self.BBM_RELAYS_STATE]
                 d['relays'] = [int(x) for x in list('{:04b}'.format(self.bbm_buf[self.BBM_RELAYS_STATE]))]
                 d['adc1'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_RELAY_ADC_1_MSB] << 8 | \
@@ -368,7 +368,7 @@ class BBMagic:
                 d['adv_time'] = self.bbm_buf[self.BBM_DIMMER_ADV_TIME] * 2
                 d['chip_temp'] = self.bbm_buf[self.BBM_DIMMER_CHIP_TEMP]
                 d['light'] = self.bbm_buf[self.BBM_RELAY_LIGHT]
-                d['firmware'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_DIMMER_FIRM_1], self.bbm_buf[self.BBM_DIMMER_FIRM_0])
+                d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_DIMMER_FIRM_1], self.bbm_buf[self.BBM_DIMMER_FIRM_0])
                 d['dimer_ch0'] = self.bbm_buf[self.BBM_DIMMER_CH0]
                 d['dimer_ch1'] = self.bbm_buf[self.BBM_DIMMER_CH1]
                 d['dimer_ch2'] = self.bbm_buf[self.BBM_DIMMER_CH2]
@@ -385,7 +385,7 @@ class BBMagic:
                 d['linux_lib_data'] = self.bbm_buf[self.BBM_LINUXLIB_DATA_2] << 16 | \
                                  self.bbm_buf[self.BBM_LINUXLIB_DATA_1] << 8 | \
                                  self.bbm_buf[self.BBM_LINUXLIB_DATA_0]
-                d['linux_lib_version'] = "{:x}.{:x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], \
+                d['linux_lib_version'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_LINUXLIB_VER_1], \
                                  self.bbm_buf[self.BBM_LINUXLIB_VER_0])
 
             else:
