@@ -5,7 +5,7 @@
 # e-mail: gabriel.zima@wp.pl
 # github: https://github.com/z1mEk/bbmagic_python_class.git
 # create date: 2018-07-02
-# update date: 2018-07-09
+# update date: 2018-07-18
 # compatibile bbmagic_lib version: 1.4
 ######################################################################################
 
