@@ -5,7 +5,7 @@
 # e-mail: gabriel.zima@wp.pl
 # github: https://github.com/z1mEk/bbmagic_python_class.git
 # create date: 2018-07-02
-# update date: 2018-07-09
+# update date: 2018-07-18
 # compatibile bbmagic_lib version: 1.4
 ######################################################################################
 
@@ -242,7 +242,7 @@ class BBMagic:
         buf_bytes = bytearray(buf)
         device_mac = ''
         for i in range(range_from, range_to + 1):
-            device_mac += "{:x}".format(buf_bytes[i])
+            device_mac += "{:02x}".format(buf_bytes[i])
         return device_mac.upper()
 
     # Function mac to buffer
@@ -293,6 +293,7 @@ class BBMagic:
                 d['light'] = self.bbm_buf[self.BBM_MOTION_LIGHT]
                 d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_MOTION_FIRM_1], self.bbm_buf[self.BBM_MOTION_FIRM_0])
                 d['motion_flags'] = self.bbm_buf[self.BBM_MOTION_FLAGS]
+                d['motion_flags_name'] = ['END MOTION','DETECT MOTION'][self.bbm_buf[self.BBM_MOTION_FLAGS]-1] 
                 d['adc1'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MOTION_ADC_1_MSB] << 8 | \
                                  self.bbm_buf[self.BBM_MOTION_ADC_1_LSB]) / 1000.0)
                 d['adc2'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MOTION_ADC_2_MSB] << 8 | \
@@ -309,6 +310,7 @@ class BBMagic:
                 d['light'] = self.bbm_buf[self.BBM_BUTTON_LIGHT]
                 d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_BUTTON_FIRM_1], self.bbm_buf[self.BBM_BUTTON_FIRM_0])
                 d['button_function'] = self.bbm_buf[self.BBM_BUTTON_BUTTON_FUNCTION]
+                d['button_function_name'] = ['SINGLE CLICK','DOUBLE CLICK','HOLDING'][self.bbm_buf[self.BBM_BUTTON_BUTTON_FUNCTION]-1]
                 d['button_input_pins'] = self.bbm_buf[self.BBM_BUTTON_INPUT_PINS]
 
             elif device_type == self.BBMAGIC_M_FLOOD:
@@ -322,6 +324,7 @@ class BBMagic:
                 d['chip_temp'] = self.bbm_buf[self.BBM_FLOOD_CHIP_TEMP]
                 d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_FLOOD_FIRM_1], self.bbm_buf[self.BBM_FLOOD_FIRM_0])
                 d['flood_flags'] = self.bbm_buf[self.BBM_FLOOD_ALERT_FLAGS]
+                d['flood_flags_name'] = ['NO FLOOD','DETECT FLOOD'][self.bbm_buf[self.BBM_FLOOD_ALERT_FLAGS]-1]
 
             elif device_type == self.BBMAGIC_M_MAGNETO:
                 d['type_name'] = 'bbm_magneto'
@@ -335,6 +338,7 @@ class BBMagic:
                 d['light'] = self.bbm_buf[self.BBM_MAGNETO_LIGHT]
                 d['firmware'] = "{:02x}.{:02x}".format(self.bbm_buf[self.BBM_MAGNETO_FIRM_1], self.bbm_buf[self.BBM_MAGNETO_FIRM_0])
                 d['magneto_flags'] = self.bbm_buf[self.BBM_MAGNETO_FLAGS]
+                d['magneto_flags_name'] = ['CLOSE','OPEN'][self.bbm_buf[self.BBM_MAGNETO_FLAGS]-1]
                 d['adc1'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MAGNETO_ADC_1_MSB] << 8 | \
                                  self.bbm_buf[self.BBM_MAGNETO_ADC_1_LSB]) / 1000.0)
                 d['adc2'] = "{:4.3f}".format(float(self.bbm_buf[self.BBM_MAGNETO_ADC_2_MSB] << 8 | \
