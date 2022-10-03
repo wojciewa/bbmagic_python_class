@@ -12,7 +12,7 @@
 import json
 import ctypes
 from ctypes import *
-bbm_bt_lib = ctypes.CDLL("bbmagic_lib_1.4.so")
+bbm_bt_lib = ctypes.CDLL("lib_bbmagic_sub.so")
 
 class BBMagic:
     def __init__(self):
@@ -202,38 +202,38 @@ class BBMagic:
         led_tx_pin = kwargs.get('led_tx_pin', 0)
         led_run_pin = kwargs.get('led_run_pin', 0)
         op_mode = kwargs.get('op_mode', 1)
-        return bbm_bt_lib.bbm_bt_open(led_rx_pin, led_tx_pin, led_run_pin, op_mode)
+        return bbm_bt_lib.bbms_bt_open(led_rx_pin, led_tx_pin, led_run_pin, op_mode)
 
     # Function: stops bt scanning and closes bt hci
     def bbm_bt_close(self):
-        return bbm_bt_lib.bbm_bt_close()
+        return bbm_bt_lib.bbms_bt_close()
 
     # Function: reads data from bbmagic modules
     def bbm_bt_read(self, bbm_data):
-        i = bbm_bt_lib.bbm_bt_read(byref(self.bbm_buf))
+        i = bbm_bt_lib.bbms_bt_read(byref(self.bbm_buf))
         bbm_data = [x for x in self.bbm_buf]
         return i
 
     # Function: returns version of bbm_bt library
     def bbm_bt_lib_version(self):
-        v = bbm_bt_lib.bbm_bt_lib_version()
+        v = bbm_bt_lib.bbms_bt_lib_version()
         return "{:x}".format(v)
 
     # Function: turns on bbm relays
     def bbm_bt_relay_on(self, mac, relay):
-        i = bbm_bt_lib.bbm_bt_relay_on(self.mac2buf(mac), [1,2,4,8][relay])
+        i = bbm_bt_lib.bbms_bt_relay_on(self.mac2buf(mac), [1,2,4,8][relay])
         return i
 
     # Function: turns off selected relays
     def bbm_bt_relay_off(self, mac, relay):
-        i = bbm_bt_lib.bbm_bt_relay_off(self.mac2buf(mac), [1,2,4,8][relay])
+        i = bbm_bt_lib.bbms_bt_relay_off(self.mac2buf(mac), [1,2,4,8][relay])
         return i
 
     # Function: sets bbm dimmer channels
     def bbm_bt_dimmer(self, mac, red, green, blue):
         rgb = [red, green, blue]
         channel = (c_byte * len(rgb))(*rgb)
-        i = bbm_bt_lib.bbm_bt_dimmer(self.mac2buf(mac), channel)
+        i = bbm_bt_lib.bbms_bt_dimmer(self.mac2buf(mac), channel)
         return i
 
     ### Helper functions
