@@ -9,9 +9,9 @@ Class based on project https://github.com/z1mEk/bbmagic_python_class . The origi
 ```bash
 sudo git clone https://github.com/wojciewa/bbmagic_python_class.git bbmagic_lib
 ```
-2. Change directory to bbmagic_lib
+2. Change directory to bbmagic_python_class
 ```bash
-cd bbmagic_lib
+cd bbmagic_python_class
 ```
 3. Install dependent libraries.
 ```bash
