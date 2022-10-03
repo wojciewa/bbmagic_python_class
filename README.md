@@ -7,7 +7,7 @@ Class based on project https://github.com/z1mEk/bbmagic_python_class . The origi
 
 1. Clone plugin repository.
 ```bash
-sudo git clone https://github.com/z1mEk/bbmagic_python_class.git bbmagic_lib
+sudo git clone https://github.com/wojciewa/bbmagic_python_class.git bbmagic_lib
 ```
 2. Change directory to bbmagic_lib
 ```bash
